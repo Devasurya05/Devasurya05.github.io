@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'">
+<title>Devasurya J Menon — The Forge</title>
+<meta name="description" content="Devasurya J Menon — a smith's workshop for invisible systems. Explainable ML, applied AI, and disciplined engineering, forged one piece at a time.">
+
+<!-- Open Graph / social previews. NEEDS: an og:image preview asset. -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://devasurya05.github.io/">
+<meta property="og:title" content="Devasurya J Menon — The Forge">
+<meta property="og:description" content="A smith's workshop for invisible systems. Explainable ML, applied AI, and disciplined engineering — forged one piece at a time.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Devasurya J Menon — The Forge">
+<meta name="twitter:description" content="A smith's workshop for invisible systems.">
+
+<link rel="stylesheet" href="./styles/tokens.css">
+<link rel="stylesheet" href="./styles/base.css">
+<link rel="stylesheet" href="./styles/forge.css">
+<link rel="stylesheet" href="./styles/views.css">
+<link rel="stylesheet" href="./styles/components.css">
+<link rel="stylesheet" href="./styles/acts.css">
+<link rel="stylesheet" href="./styles/responsive.css">
+</head>
+<body class="at-home">
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<nav class="corner-links" aria-label="Persistent links">
+  <a href="./assets/Devasurya_Menon_Resume.pdf" download="Devasurya_Menon_Resume.pdf">Résumé</a>
+  <a href="https://github.com/Devasurya05" rel="noopener">GitHub</a>
+  <a href="https://www.linkedin.com/in/devasurya-menon-520a1928a" rel="noopener">LinkedIn</a>
+  <a href="#correspondence">Contact</a>
+</nav>
+
+<!-- Transition veil shared by the camera zoom and view changes. -->
+<div class="veil" id="veil" aria-hidden="true"></div>
+
+<main id="main">
+
+  <!-- ================================================================
+       HOME — THE WORKSHOP. The only screen at rest. Scrolling pans the
+       camera sideways across the room; every object is a real <a>
+       hotspot that opens its own view. viewBox is 3200x900: bench side
+       on the left, hearth mid-right, visitors' wall and door far right.
+       ================================================================ -->
+  <section id="forge" class="forge-stage" aria-labelledby="forge-heading">
+    <div class="forge-scroll" id="forgeScroll">
+      <div class="forge-pan" id="forgePan">
+        <div class="forge-world" id="forgeWorld">
+          <svg class="forge-scene" viewBox="0 0 3200 900" preserveAspectRatio="xMidYMid meet"
+               aria-label="Illustrated blacksmith's workshop. Each object is a link into a section of this site.">
+            <defs>
+              <radialGradient id="gHearth" cx="50%" cy="70%" r="65%">
+                <stop offset="0%"  stop-color="#ffb36b" stop-opacity="0.85"/>
+                <stop offset="35%" stop-color="#ff7a2f" stop-opacity="0.5"/>
+                <stop offset="70%" stop-color="#8a2e10" stop-opacity="0.22"/>
+                <stop offset="100%" stop-color="#8a2e10" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="gCoals" cx="50%" cy="40%" r="70%">
+                <stop offset="0%"  stop-color="#ffd9a0" stop-opacity="0.95"/>
+                <stop offset="45%" stop-color="#ff7a2f" stop-opacity="0.7"/>
+                <stop offset="100%" stop-color="#8a2e10" stop-opacity="0.25"/>
+              </radialGradient>
+              <radialGradient id="gWash" cx="50%" cy="50%" r="50%">
+                <stop offset="0%"  stop-color="#ff7a2f" stop-opacity="0.13"/>
+                <stop offset="100%" stop-color="#ff7a2f" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="gHot" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%"  stop-color="#ffd9a0"/>
+                <stop offset="100%" stop-color="#ff7a2f"/>
+              </linearGradient>
+              <radialGradient id="gHeat" cx="50%" cy="50%" r="50%">
+                <stop offset="0%"  stop-color="#ffb36b" stop-opacity="0.45"/>
+                <stop offset="100%" stop-color="#ffb36b" stop-opacity="0"/>
+              </radialGradient>
+              <pattern id="stones" width="170" height="64" patternUnits="userSpaceOnUse">
+                <path d="M0 0 H170 M0 32 H170 M42 0 V32 M128 32 V64" stroke="#b8853a" stroke-width="1" opacity="0.35" fill="none"/>
+              </pattern>
+              <clipPath id="sceneShieldClip">
+                <path d="M2640 268 C2740 268 2768 292 2768 332 V436 C2768 528 2712 588 2640 628 C2568 588 2512 528 2512 436 V332 C2512 292 2540 268 2640 268 Z"/>
+              </clipPath>
+            </defs>
+
+            <!-- ============ WALL (farthest, slowest parallax) ============ -->
+            <g class="layer layer-wall" aria-hidden="true">
+              <rect x="-40" y="-40" width="3280" height="820" fill="url(#stones)" opacity="0.16"/>
+              <!-- tall arched window on the night — sits quietly behind the hero copy -->
+              <g stroke="#b8853a" fill="none" opacity="0.35">
+                <path d="M150 380 V166 Q150 92 235 92 Q320 92 320 166 V380"/>
+                <path d="M140 380 H330 M140 388 H330"/>
+                <path d="M235 94 V380 M150 240 H320"/>
+              </g>
+              <circle cx="274" cy="164" r="12" fill="#e8e2d3" opacity="0.3"/>
+              <path d="M150 388 L120 700 L350 700 L320 388 Z" fill="#e8e2d3" opacity="0.014"/>
+              <!-- far-right door, ajar on the night -->
+              <g stroke="#b8853a" fill="none" opacity="0.4">
+                <path d="M2980 780 V438 Q2980 424 2994 424 H3126 Q3140 424 3140 438 V780"/>
+                <path d="M3140 430 L3196 452 V792 L3140 780"/>
+                <path d="M3150 470 V760 M3186 480 V774" opacity="0.5"/>
+              </g>
+              <rect x="2986" y="434" width="16" height="342" fill="#e8e2d3" opacity="0.05"/>
+              <!-- broom by the door -->
+              <g stroke="#b8853a" fill="none" opacity="0.45">
+                <path d="M2902 780 L2952 566"/>
+                <path d="M2884 780 L2916 780 L2910 744 L2892 746 Z M2890 776 L2894 750 M2898 778 L2901 748 M2906 778 L2906 746"/>
+              </g>
+            </g>
+
+            <!-- ============ MIDGROUND: shelf, toolrack, blade, hearth, wall pieces ============ -->
+            <g class="layer layer-mid">
+              <!-- light washes: hearth (tight + a broad reach across the room) + lantern -->
+              <ellipse class="flicker-slow" cx="2102" cy="560" rx="560" ry="430" fill="url(#gWash)" aria-hidden="true"/>
+              <ellipse class="flicker-slow" cx="2102" cy="600" rx="1250" ry="520" fill="url(#gWash)" opacity="0.55" aria-hidden="true"/>
+              <ellipse class="flicker-slow" cx="2420" cy="200" rx="150" ry="110" fill="url(#gWash)" aria-hidden="true"/>
+
+              <!-- hanging lantern -->
+              <g aria-hidden="true" stroke="#b8853a" fill="none" opacity="0.6">
+                <path d="M2420 -10 V148 M2404 148 H2436 M2408 148 V206 M2432 148 V206 M2404 206 H2436 M2414 206 V214 M2426 206 V214"/>
+              </g>
+              <circle class="flicker" cx="2420" cy="180" r="9" fill="url(#gCoals)" aria-hidden="true"/>
+
+              <!-- SHELF on the wall above the shield -> hobbies / after hours -->
+              <a href="#offtheanvil" class="hotspot" aria-label="After hours">
+                <ellipse class="heat" cx="2640" cy="290" rx="160" ry="75" fill="url(#gHeat)"/>
+                <g class="art">
+                  <path d="M2545 322 H2735 M2545 328 H2735 M2563 328 L2549 356 M2717 328 L2731 356"/>
+                  <path d="M2569 302 Q2569 322 2589 322 Q2609 322 2609 302 Z M2609 306 Q2623 308 2609 316"/>
+                  <path d="M2581 288 q4 -8 0 -14 M2595 290 q4 -8 0 -14" opacity="0.55"/>
+                  <rect x="2629" y="270" width="26" height="52"/>
+                  <path d="M2635 280 H2649 M2635 292 H2649 M2635 304 H2649" opacity="0.7"/>
+                  <text class="plate-mini" x="2663" y="318">N5</text>
+                  <path d="M2683 322 L2689 298 H2713 L2719 322 Z M2701 298 Q2693 278 2681 274 M2701 298 Q2701 274 2701 266 M2701 298 Q2710 280 2721 278"/>
+                </g>
+                <g class="plate" transform="translate(2640 394)">
+                  <rect x="-85" y="-15" width="170" height="30"/>
+                  <text>AFTER HOURS</text>
+                </g>
+              </a>
+
+              <!-- hanging sign naming the works cluster -->
+              <g aria-hidden="true">
+                <path d="M1030 168 V206 M1150 168 V206 M1030 176 L1024 168 H1036 Z M1150 176 L1144 168 H1156 Z" stroke="#b8853a" stroke-width="1.5" fill="none" opacity="0.55"/>
+                <rect x="1000" y="206" width="180" height="42" fill="#111114" stroke="#b8853a" stroke-width="1.5" opacity="0.9"/>
+                <rect x="1006" y="212" width="168" height="30" fill="none" stroke="#b8853a" opacity="0.35"/>
+                <text class="sign-text" x="1090" y="232">PROJECTS</text>
+              </g>
+
+              <!-- SWORD ON WALL RACK above the bench -> TraceFlow (centerpiece) -->
+              <a href="#work-traceflow" class="hotspot" aria-label="TraceFlow — the centerpiece project">
+                <ellipse class="heat" cx="980" cy="330" rx="170" ry="72" fill="url(#gHeat)"/>
+                <g class="art">
+                  <!-- wall hooks -->
+                  <path d="M890 350 V334 M880 350 H900 M1070 350 V334 M1060 350 H1080"/>
+                  <!-- blade: tip, edge bevels, fuller -->
+                  <path d="M836 330 L870 319 H1030 V341 H870 Z"/>
+                  <path d="M878 330 H1022" opacity="0.7"/>
+                  <!-- guard, wrapped grip, pommel -->
+                  <path d="M1030 306 H1042 V354 H1030 Z"/>
+                  <path d="M1042 324 H1084 V336 H1042 Z M1052 324 V336 M1062 324 V336 M1072 324 V336"/>
+                  <circle cx="1092" cy="330" r="7"/>
+                </g>
+                <g class="plate" transform="translate(980 414)">
+                  <rect x="-80" y="-15" width="160" height="30"/>
+                  <text>TRACEFLOW</text>
+                </g>
+              </a>
+
+              <!-- GRINDSTONE on a wall bracket beside the blade -> AutoPrompt -->
+              <a href="#work-autoprompt" class="hotspot" aria-label="The Grindstone — AutoPrompt prompt-optimization framework">
+                <ellipse class="heat" cx="1262" cy="322" rx="110" ry="72" fill="url(#gHeat)"/>
+                <g class="art">
+                  <!-- bracket shelf -->
+                  <path d="M1206 354 H1318 M1206 360 H1318 M1218 360 L1206 382 M1306 360 L1318 382"/>
+                  <!-- wheel, hub, spokes, crank -->
+                  <circle cx="1262" cy="318" r="34"/><circle cx="1262" cy="318" r="5"/>
+                  <path d="M1262 288 V312 M1262 324 V348 M1232 318 H1256 M1268 318 H1292" opacity="0.7"/>
+                  <path d="M1267 314 L1296 294"/><circle cx="1300" cy="291" r="4"/>
+                  <path class="sparks" d="M1236 290 l-8 -8 M1246 282 l-4 -11 M1228 300 l-11 -5" opacity="0.7"/>
+                </g>
+                <g class="plate" transform="translate(1262 414)">
+                  <rect x="-85" y="-15" width="170" height="30"/>
+                  <text>AUTOPROMPT</text>
+                </g>
+              </a>
+
+              <!-- TOOLRACK -> skills (right of the works cluster) -->
+              <a href="#toolrack" class="hotspot" aria-label="Skills">
+                <ellipse class="heat" cx="1650" cy="320" rx="220" ry="95" fill="url(#gHeat)"/>
+                <g class="art">
+                  <path d="M1480 272 H1782 M1480 278 H1782"/>
+                  <path d="M1510 278 V292 M1565 278 V292 M1620 278 V292 M1675 278 V292 M1730 278 V292 M1764 278 V292"/>
+                  <!-- hammer -->
+                  <rect x="1488" y="292" width="44" height="16"/><path d="M1510 308 V384"/>
+                  <!-- tongs -->
+                  <path d="M1557 292 Q1541 344 1551 384 M1573 292 Q1589 344 1579 384 M1557 306 L1573 306"/><circle cx="1565" cy="306" r="3"/>
+                  <!-- file -->
+                  <path d="M1620 292 L1613 370 H1627 Z M1616 370 H1624 L1620 390 Z"/>
+                  <path d="M1616 312 H1624 M1615 326 H1625 M1614 340 H1626 M1614 354 H1626" opacity="0.7"/>
+                  <!-- calipers -->
+                  <circle cx="1675" cy="298" r="4"/><path d="M1675 302 Q1653 346 1661 384 M1675 302 Q1697 346 1689 384"/>
+                  <!-- chisel -->
+                  <path d="M1730 292 V360 M1724 360 H1736 L1730 388 Z"/>
+                  <!-- saw frame -->
+                  <path d="M1744 292 H1784 V354 H1744 Z M1744 354 H1784" opacity="0.9"/>
+                  <path d="M1748 354 l4 6 4 -6 4 6 4 -6 4 6 4 -6 4 6 4 -6" opacity="0.7"/>
+                </g>
+                <g class="plate" transform="translate(1645 432)">
+                  <rect x="-60" y="-15" width="120" height="30"/>
+                  <text>SKILLS</text>
+                </g>
+              </a>
+
+              <!-- bellows and bar stock under the toolrack (ambient) — the fire's lungs -->
+              <g aria-hidden="true" stroke="#b8853a" fill="none" opacity="0.6">
+                <path d="M1786 700 L1722 674 Q1646 648 1584 674 Q1544 692 1544 710 Q1544 734 1584 748 Q1646 770 1722 746 L1786 712 Z"/>
+                <path d="M1786 700 L1812 704 L1812 710 L1786 712"/>
+                <path d="M1604 666 Q1600 710 1604 754 M1648 656 Q1644 710 1648 762 M1692 654 Q1688 710 1692 764" opacity="0.7"/>
+                <path d="M1552 694 L1506 676 M1552 728 L1506 748"/>
+                <circle cx="1501" cy="674" r="4"/><circle cx="1501" cy="750" r="4"/>
+                <path d="M1470 764 H1580 M1476 772 H1586 M1482 756 H1572" opacity="0.8"/>
+              </g>
+
+              <!-- hearth (ambient) -->
+              <g aria-hidden="true">
+                <rect x="1910" y="-40" width="380" height="480" fill="url(#stones)" opacity="0.28"/>
+                <path d="M1910 -40 V440 M2290 -40 V440 M1900 440 H2300" stroke="#b8853a" stroke-width="1.5" fill="none" opacity="0.5"/>
+                <path d="M1950 780 V560 Q1950 462 2060 456 H2150 Q2255 462 2255 560 V780 Z" fill="url(#gHearth)"/>
+                <path d="M1950 780 V560 Q1950 462 2060 456 H2150 Q2255 462 2255 560 V780" stroke="#b8853a" stroke-width="1.5" fill="none" opacity="0.7"/>
+                <ellipse class="flicker" cx="2102" cy="762" rx="118" ry="26" fill="url(#gCoals)"/>
+                <g stroke="#8a2e10" stroke-width="1" fill="none" opacity="0.8">
+                  <circle cx="2060" cy="758" r="9"/><circle cx="2100" cy="750" r="11"/>
+                  <circle cx="2142" cy="759" r="8"/><circle cx="2120" cy="766" r="6"/>
+                </g>
+                <rect class="flicker" x="2078" y="726" width="52" height="9" fill="url(#gHot)" transform="rotate(-8 2104 730)"/>
+                <path d="M1930 780 L1964 588 M1920 780 L1938 620 L1930 606 L1946 610" stroke="#b8853a" stroke-width="1.5" fill="none" opacity="0.6"/>
+              </g>
+
+              <!-- quench barrel under the lantern (ambient) -->
+              <g aria-hidden="true" stroke="#b8853a" fill="none" opacity="0.65">
+                <path d="M2372 640 Q2362 710 2372 778 M2472 640 Q2482 710 2472 778 M2372 778 H2472"/>
+                <ellipse cx="2422" cy="640" rx="52" ry="10"/>
+                <ellipse cx="2422" cy="641" rx="42" ry="7" stroke="#4a8fc2" opacity="0.5"/>
+                <path d="M2367 672 Q2422 682 2477 672 M2369 730 Q2422 740 2475 730"/>
+                <path d="M2402 612 q8 -18 0 -34 q-6 -14 4 -26 M2438 616 q-8 -16 0 -30 q6 -12 -2 -24" opacity="0.35"/>
+              </g>
+
+              <!-- THE VISITORS' SHIELD, on the floor leaning against a crate -> guestbook -->
+              <a href="#wall" class="hotspot" aria-label="The Visitors' Wall — leave your mark">
+                <ellipse class="heat" cx="2645" cy="610" rx="210" ry="165" fill="url(#gHeat)"/>
+                <g class="art">
+                  <!-- crate it leans against -->
+                  <g opacity="0.7">
+                    <rect x="2716" y="656" width="96" height="124"/>
+                    <path d="M2716 688 H2812 M2716 748 H2812 M2716 688 L2812 748 M2812 688 L2716 748"/>
+                  </g>
+                </g>
+                <!-- shield: 7% smaller, tipped 6° onto the crate. The inner group keeps
+                     the original drawing coordinates so sceneMarks and its clipPath
+                     stay aligned no matter how the whole piece is posed. -->
+                <g transform="translate(0 152) rotate(6 2640 628)">
+                  <g transform="translate(2640 628) scale(0.93) translate(-2640 -628)">
+                    <g class="art">
+                      <path d="M2640 268 C2740 268 2768 292 2768 332 V436 C2768 528 2712 588 2640 628 C2568 588 2512 528 2512 436 V332 C2512 292 2540 268 2640 268 Z"/>
+                    </g>
+                    <!-- real visitor marks, mirrored from the guestbook by js/marks.js -->
+                    <g id="sceneMarks" clip-path="url(#sceneShieldClip)" aria-hidden="true"></g>
+                  </g>
+                </g>
+                <g class="plate" transform="translate(2640 838)">
+                  <rect x="-168" y="-15" width="336" height="30"/>
+                  <text>THE VISITORS' WALL · LEAVE YOUR MARK</text>
+                </g>
+              </a>
+            </g>
+
+            <!-- ============ FOREGROUND: floor, letter, anvil, bench, grindstone ============ -->
+            <g class="layer layer-fore">
+              <g aria-hidden="true" stroke="#b8853a" fill="none">
+                <path d="M-40 780 H3240" stroke-width="1.5" opacity="0.4"/>
+                <path d="M-40 818 H3240 M-40 856 H3240" opacity="0.12"/>
+              </g>
+
+              <!-- SIDE TABLE + SEALED LETTER -> contact -->
+              <a href="#correspondence" class="hotspot" aria-label="Contact">
+                <ellipse class="heat" cx="140" cy="660" rx="120" ry="70" fill="url(#gHeat)"/>
+                <g class="art">
+                  <path d="M60 664 H220 M70 664 V780 M210 664 V780 M70 730 H210"/>
+                  <path d="M95 664 V636 H185 V664 Z M95 636 L140 656 L185 636"/>
+                  <circle class="seal" cx="140" cy="648" r="5"/>
+                </g>
+                <g class="plate" transform="translate(140 830)">
+                  <rect x="-65" y="-15" width="130" height="30"/>
+                  <text>CONTACT</text>
+                </g>
+              </a>
+
+              <!-- ANVIL + SMITH'S HAND -> who I am -->
+              <a href="#smith" class="hotspot" aria-label="Who I am">
+                <ellipse class="heat" cx="540" cy="628" rx="190" ry="98" fill="url(#gHeat)"/>
+                <g class="art">
+                  <!-- stump -->
+                  <path d="M300 692 H460 L452 780 H308 Z M316 710 Q380 702 444 710" opacity="0.8"/>
+                  <!-- anvil -->
+                  <path d="M272 656 Q304 636 330 642 L330 636 H470 V662 L452 668 V692 H346 V668 L330 662 Z"/>
+                  <!-- hot billet held by tongs -->
+                  <rect class="billet flicker" x="382" y="626" width="58" height="10" fill="url(#gHot)" stroke="none"/>
+                  <path d="M440 630 L556 594 M442 638 L558 606 M500 613 L504 622" opacity="0.9"/>
+                  <!-- the smith's gloved hand: palm over the tong handles, four knuckles,
+                       finger separations, thumb wrapping underneath -->
+                  <path d="M548 586 Q560 576 576 578 L590 580 Q599 578 602 586 L612 584 Q620 586 619 595 L627 596 Q633 601 629 610 L634 616 Q635 624 626 628 Q616 638 598 638 Q580 640 566 628 L548 610 Q542 596 548 586 Z"/>
+                  <path d="M602 586 Q604 596 596 602 M619 595 Q618 604 608 608 M629 610 Q625 618 614 620" opacity="0.65"/>
+                  <path d="M552 598 Q566 610 584 608 Q592 607 596 602" opacity="0.7"/>
+                  <!-- glove cuff and forearm -->
+                  <path d="M622 632 Q628 622 636 616"/>
+                  <path d="M630 636 Q664 668 692 718 M642 612 Q684 650 712 702 M692 718 Q702 712 712 702" opacity="0.8"/>
+                  <path d="M654 648 L666 636" opacity="0.5"/>
+                  <!-- resting hammer -->
+                  <path d="M282 692 L330 668 M270 680 L286 700 L302 692 L286 672 Z" opacity="0.9"/>
+                </g>
+                <g class="plate" transform="translate(430 838)">
+                  <rect x="-70" y="-15" width="140" height="30"/>
+                  <text>WHO I AM</text>
+                </g>
+              </a>
+
+              <!-- WORKBENCH (three pieces, breathing room) -->
+              <g aria-hidden="true" stroke="#b8853a" fill="none">
+                <path d="M740 640 H1420 M740 640 V664 H1420 V640 M740 664 L734 672 M1420 664 L1426 672" stroke-width="1.5" opacity="0.85"/>
+                <path d="M768 664 V780 M788 664 V776 M1070 664 V780 M1090 664 V776 M1372 664 V780 M1392 664 V776 M768 742 H1392" opacity="0.55"/>
+                <path d="M780 652 H1100 M1160 652 H1390" opacity="0.2"/>
+              </g>
+
+              <!-- HAND LENS -> Eye Disease Detection -->
+              <a href="#work-eye" class="hotspot" aria-label="Explainable eye disease detection">
+                <ellipse class="heat" cx="884" cy="600" rx="100" ry="62" fill="url(#gHeat)"/>
+                <g class="art">
+                  <circle cx="880" cy="584" r="27"/><circle cx="880" cy="584" r="21"/>
+                  <ellipse cx="880" cy="584" rx="10" ry="6"/><circle cx="880" cy="584" r="2.6"/>
+                  <path d="M898 604 L914 636 M890 610 L904 638 M914 636 L904 638"/>
+                  <path d="M862 640 L870 622 M900 640 L892 624" opacity="0.7"/>
+                </g>
+                <g class="plate" transform="translate(884 690)">
+                  <rect x="-115" y="-15" width="230" height="30"/>
+                  <text>EYE DISEASE DETECTION</text>
+                </g>
+              </a>
+
+              <!-- BALANCE SCALE -> Price Intelligence -->
+              <a href="#work-price" class="hotspot" aria-label="Second-hand price intelligence">
+                <ellipse class="heat" cx="1090" cy="590" rx="96" ry="68" fill="url(#gHeat)"/>
+                <g class="art">
+                  <path d="M1074 640 H1106 M1090 640 V576"/>
+                  <path d="M1090 560 L1084 568 L1090 576 L1096 568 Z"/>
+                  <path d="M1040 570 H1140"/>
+                  <path d="M1040 570 L1030 604 M1040 570 L1050 604 M1140 570 L1130 604 M1140 570 L1150 604"/>
+                  <path d="M1026 604 Q1040 616 1054 604 M1126 604 Q1140 616 1154 604"/>
+                  <circle cx="1036" cy="601" r="3"/>
+                </g>
+                <g class="plate" transform="translate(1090 690)">
+                  <rect x="-105" y="-15" width="210" height="30"/>
+                  <text>PRICE INTELLIGENCE</text>
+                </g>
+              </a>
+
+              <!-- BOUND TOME -> StudIQ -->
+              <a href="#work-studiq" class="hotspot" aria-label="StudIQ AI tutor">
+                <ellipse class="heat" cx="1290" cy="608" rx="92" ry="58" fill="url(#gHeat)"/>
+                <g class="art">
+                  <rect x="1254" y="606" width="72" height="34" rx="2"/>
+                  <path d="M1254 614 H1326 M1254 632 H1326" opacity="0.6"/>
+                  <path d="M1326 616 H1336 V628 H1326"/>
+                  <circle cx="1290" cy="623" r="6"/><circle cx="1290" cy="623" r="1.6"/>
+                </g>
+                <g class="plate" transform="translate(1290 690)">
+                  <rect x="-95" y="-15" width="190" height="30"/>
+                  <text>STUDIQ AI TUTOR</text>
+                </g>
+              </a>
+
+            </g>
+          </svg>
+          <canvas class="forge-embers" id="forgeEmbers" aria-hidden="true"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-content" id="heroContent">
+      <div class="eyebrow">Devasurya J Menon</div>
+      <h1 id="forge-heading">The Forge</h1>
+      <p class="identity">
+        <strong>A smith's bench for invisible systems.</strong> Every piece in this workshop
+        is a working instrument — step closer to anything and it will show you how it was made.
+      </p>
+      <p class="scroll-cue">Scroll to pan the room · pick anything up</p>
+    </div>
+
+    <!-- Plain walk-through of the same destinations: guaranteed usable without
+         JS, hover, or a pointer, and the fastest path for screen readers. -->
+    <nav class="forge-index" aria-label="Sections">
+      <a href="#smith">Who I am</a>
+      <a href="#craft">How I work</a>
+      <a href="#works">Projects</a>
+      <a href="#toolrack">Skills</a>
+      <a href="#offtheanvil">After hours</a>
+      <a href="#wall">Visitors' Wall</a>
+      <a href="#correspondence">Contact</a>
+    </nav>
+
+    <button type="button" class="ambience-toggle" id="ambienceToggle" aria-pressed="false">
+      <span class="dot" aria-hidden="true"></span> Forge ambience
+    </button>
+  </section>
+
+  <!-- ================================================================
+       VIEWS — each one is its own "page": hidden until its hotspot (or
+       hash) opens it, at which point the workshop is put away entirely.
+       Same document, so opening is instant; the veil makes it cinematic.
+       ================================================================ -->
+  <div id="views">
+
+  <!-- THE SMITH -->
+  <section class="view" id="smith" tabindex="-1" aria-labelledby="smith-heading" hidden>
+    <div class="view-inner">
+      <a class="bench-return" href="#forge">⟵ Back to the workshop</a>
+      <div class="section-label"><h2 id="smith-heading">Who I am</h2></div>
+      <p class="flag" style="margin-bottom:20px;">DRAFT — please edit or replace</p>
+      <p>
+        I'm Devasurya — an engineer who distrusts anything that works but can't say why.
+        Most of what's on this bench didn't come from a course syllabus. AutoPrompt's asyncio
+        pipeline, TraceFlow's multi-tenant RCA design, the decision to hold Grad-CAM to a
+        clinical validation bar rather than treating it as a nice-to-have — these came from
+        picking a real, harder problem and hammering at it until it worked, then writing it up.
+        That habit shows up off the bench too: a Linux Foundation Certified System Administrator
+        credential earned alongside coursework, JLPT N5 studied independently, and the AutoPrompt
+        work carried all the way into a co-authored IEEE/Springer conference paper — the
+        difference between a project that runs and one that holds up to review.
+      </p>
+      <p>Currently at Jain University (CGPA 8.7), still forging the next instrument.</p>
+      <ul class="credentials">
+        <li><span>Jain University</span><span>CGPA 8.7</span></li>
+        <li><span>Co-authored IEEE/Springer conference paper — AutoPrompt v2.0 evaluation work</span><span class="flag" style="margin:0; display:inline; border:none; background:none; padding:0;">[NEEDS: exact title/DOI]</span></li>
+        <li><span>LFCS</span><span>Linux Foundation Certified System Administrator</span></li>
+        <li><span>JLPT N5</span><span>Japanese language proficiency</span></li>
+      </ul>
+      <p class="view-next"><a href="#craft">Next — How I work →</a></p>
+    </div>
+  </section>
+
+  <!-- THE CRAFT -->
+  <section class="view" id="craft" tabindex="-1" aria-labelledby="craft-heading" hidden>
+    <div class="view-inner">
+      <a class="bench-return" href="#forge">⟵ Back to the workshop</a>
+      <div class="section-label"><h2 id="craft-heading">How I work</h2></div>
+      <p class="section-intro">Four rules, each one earned on a real build.</p>
+
+      <div class="creed">
+        <article class="creed-item">
+          <span class="creed-num">01</span>
+          <h3>Don't trust the black box.</h3>
+          <p>
+            A model that's merely accurate isn't finished. The retinal classifier ships a
+            Grad-CAM heatmap with every prediction and holds it to a clinical bar — glaucoma
+            attention must land on the optic disc, or the accuracy number doesn't matter.
+            Explainability as a correctness check, not a feature.
+          </p>
+        </article>
+        <article class="creed-item">
+          <span class="creed-num">02</span>
+          <h3>Benchmark, don't guess.</h3>
+          <p>
+            ResNet18 versus Swin Transformer wasn't decided by fashion — both ran the same task
+            and the numbers picked the winner. AutoPrompt does the same to prompts: baseline and
+            optimized pipelines run concurrently, scored against held-out data, and the evidence
+            decides.
+          </p>
+        </article>
+        <article class="creed-item">
+          <span class="creed-num">03</span>
+          <h3>Build for the second user on day one.</h3>
+          <p>
+            TraceFlow was multi-tenant before it had its second tenant — every query scoped by
+            tenant ID from the first commit, because retrofitting isolation onto a single-user
+            demo is how data leaks are born.
+          </p>
+        </article>
+        <article class="creed-item">
+          <span class="creed-num">04</span>
+          <h3>Ship the whole path.</h3>
+          <p>
+            A notebook is not a deliverable. The eye-disease model is live on Hugging Face
+            Spaces; TraceFlow and the price engine run containerized with real frontends. If a
+            recruiter can't click it, it isn't done.
+          </p>
+        </article>
+      </div>
+
+      <div class="creed-fire">
+        <span class="beat-label">Fire, directed</span>
+        <p>
+          A smith doesn't fear the fire — he directs it. I work with LLMs the same way:
+          AutoPrompt is a framework that makes a model optimize its own prompts under
+          measurement, and this site itself was forged in a directed collaboration with Claude —
+          spec written first, every pass critiqued against it, nothing generated left standing
+          unexamined. Prompting well is a craft skill; the evidence is in this workshop.
+        </p>
+      </div>
+      <p class="view-next"><a href="#works">Next — Projects →</a></p>
+    </div>
+  </section>
+
+  <!-- FORGEWORKS -->
+  <section class="view" id="works" tabindex="-1" aria-labelledby="works-heading" hidden>
+    <div class="view-inner">
+      <a class="bench-return" href="#forge">⟵ Back to the workshop</a>
+      <div class="section-label"><h2 id="works-heading">Projects</h2><span>five pieces, one conviction: show your work</span></div>
+
+      <!-- THE BLADE: TraceFlow (centerpiece) -->
+      <article class="project centerpiece" id="work-traceflow" tabindex="-1" aria-labelledby="traceflow-heading">
+        <svg class="project-schema" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 800 500" aria-hidden="true" focusable="false">
+          <g stroke="#e8a54b" stroke-width="1" fill="none" opacity="0.85">
+            <rect x="40" y="60" width="140" height="80" rx="2"/>
+            <path d="M180 100 L260 100"/>
+            <circle cx="300" cy="100" r="36"/>
+            <path d="M336 100 L420 100"/>
+            <rect x="420" y="60" width="160" height="80" rx="2"/>
+            <path d="M420 80 L580 80 M420 120 L580 120"/>
+            <path d="M580 100 L660 100 L660 220"/>
+            <circle cx="660" cy="260" r="20"/>
+            <path d="M660 300 L660 380" stroke-dasharray="2 6" opacity="0.6"/>
+            <path d="M60 200 L60 420 M60 420 L740 420" stroke-dasharray="2 6" opacity="0.4"/>
+          </g>
+        </svg>
+        <div class="project-content">
+        <span class="kicker">The centerpiece</span>
+        <h3 id="traceflow-heading">TraceFlow</h3>
+        <p class="centerpiece-sub">
+          A factory floor doesn't wait for a human to be free. TraceFlow is the answer to a
+          specific engineering bet: root-cause analysis for manufacturing faults, running
+          as an asynchronous, multi-tenant service from day one — not a single-user demo
+          bolted onto multi-tenancy later.
+        </p>
+
+        <ul class="stack-list" aria-label="Technology stack">
+          <li>FastAPI · async · Python 3.12</li>
+          <li>PostgreSQL 16</li>
+          <li>ChromaDB</li>
+          <li>Gemini 3.5 Flash</li>
+          <li>Docker</li>
+          <li>React + Vite</li>
+        </ul>
+
+        <div class="centerpiece-stages">
+          <div class="cp-nav" role="tablist" aria-label="Walk through TraceFlow stage by stage">
+            <button type="button" class="cp-nav-btn is-active" role="tab" id="cp-tab-1" aria-selected="true" aria-controls="cp-panel-1" data-stage="1">01 · The problem</button>
+            <button type="button" class="cp-nav-btn" role="tab" id="cp-tab-2" aria-selected="false" aria-controls="cp-panel-2" data-stage="2" tabindex="-1">02 · The decision</button>
+            <button type="button" class="cp-nav-btn" role="tab" id="cp-tab-3" aria-selected="false" aria-controls="cp-panel-3" data-stage="3" tabindex="-1">03 · The mechanism</button>
+            <button type="button" class="cp-nav-btn" role="tab" id="cp-tab-4" aria-selected="false" aria-controls="cp-panel-4" data-stage="4" tabindex="-1">04 · The outcome</button>
+          </div>
+          <div class="cp-panels">
+            <div class="cp-stage" id="cp-panel-1" role="tabpanel" aria-labelledby="cp-tab-1">
+              <span class="cp-stage-label">Ingestion</span>
+              <p>
+                Factory equipment doesn't fail politely. It fails constantly, and the person who
+                can diagnose it is rarely the person watching the dashboard when it happens. The
+                engineering decision: never make the caller wait on the real analysis. An error
+                comes in over HTTP POST and gets an immediate <strong>202 Accepted</strong> with
+                a tracking ticket — the API's job ends there. A background worker takes it from here.
+              </p>
+              <div class="readout">POST /api/v1/incidents → 202 Accepted · ticket: queued</div>
+            </div>
+            <div class="cp-stage" id="cp-panel-2" role="tabpanel" aria-labelledby="cp-tab-2" hidden>
+              <span class="cp-stage-label">Investigation</span>
+              <p>
+                A root cause isn't just this machine's history — it's this machine's history
+                <em>read against</em> the technical manuals that explain what the symptoms mean.
+                The worker pulls fault history from PostgreSQL and runs a metadata-scoped vector
+                search over manuals in ChromaDB, scoped to the submitting tenant's ID — so one
+                customer's equipment data never leaks into another's retrieval results.
+              </p>
+              <div class="readout">WORKER → PostgreSQL (fault history) + ChromaDB (tenant-scoped retrieval)</div>
+            </div>
+            <div class="cp-stage" id="cp-panel-3" role="tabpanel" aria-labelledby="cp-tab-3" hidden>
+              <span class="cp-stage-label">Synthesis</span>
+              <p>
+                Structured history and retrieved manual excerpts combine into one context window,
+                sent to Gemini 3.5 Flash to synthesize a preliminary RCA report. The demo proves
+                this generalizes across two unrelated manufacturing domains — injection molding
+                and CNC calibration — on the same architecture, same code path.
+              </p>
+              <div class="readout">GEMINI 3.5 FLASH → RCA report → GET /api/v1/incidents/{ticket_id}</div>
+            </div>
+            <div class="cp-stage" id="cp-panel-4" role="tabpanel" aria-labelledby="cp-tab-4" hidden>
+              <span class="cp-stage-label">Outcome</span>
+              <p>
+                A factory-floor error becomes a synthesized root-cause report without a human in
+                the loop until the answer is ready to read — and a minimal React + Vite frontend
+                handles submission, status polling, and markdown report rendering, so the whole
+                path from incident to answer is real, not just the backend half of it.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-links">
+          <a href="https://github.com/Devasurya05/TraceFlow" rel="noopener">Repository →</a>
+        </div>
+        <p class="flag">
+          NEEDS: real request/response screenshots or a recorded incident walkthrough, to extend
+          this centerpiece with an actual incident submission → queued → RCA report reveal.
+        </p>
+        </div>
+      </article>
+
+      <!-- THE LENS: Eye Disease Detection -->
+      <article class="project" id="work-eye" tabindex="-1" aria-labelledby="eye-heading">
+        <svg class="project-schema" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 800 500" aria-hidden="true" focusable="false">
+          <g stroke="#e8a54b" stroke-width="1" fill="none" opacity="0.85">
+            <circle cx="180" cy="140" r="70"/>
+            <circle cx="180" cy="140" r="6" fill="#e8a54b"/>
+            <path d="M180 70 L180 30 M180 210 L180 250 M110 140 L60 140 M250 140 L300 140"/>
+            <rect x="380" y="90" width="180" height="100" rx="2"/>
+            <path d="M380 140 L560 140 M420 90 L420 190 M500 90 L500 190"/>
+            <path d="M600 60 L680 60 L680 260 L600 260"/>
+            <circle cx="640" cy="160" r="26"/>
+            <path d="M60 340 L740 340" stroke-dasharray="2 6" opacity="0.5"/>
+          </g>
+        </svg>
+        <div class="project-content">
+        <span class="kicker">Explainable ML</span>
+        <h3 id="eye-heading">Explainable Eye Disease Detection</h3>
+
+        <div class="beat">
+          <span class="beat-label">The stakes</span>
+          <p>
+            A medical model that's merely accurate isn't good enough. If it can't show its
+            reasoning, a clinician has no way to catch it when it's confidently wrong — and a
+            wrong diagnosis with no visible logic behind it is a liability, not a tool.
+          </p>
+        </div>
+        <div class="beat">
+          <span class="beat-label">The decision</span>
+          <p>
+            Don't commit to one architecture and hope — put a classic CNN (ResNet18) and a
+            modern Swin Transformer through the same retinal-imagery task side by side, and
+            require both to produce a Grad-CAM attention heatmap alongside every prediction,
+            never just a bare label.
+          </p>
+        </div>
+        <div class="beat">
+          <span class="beat-label">The mechanism</span>
+          <p>
+            A clinical-validation layer checks whether model attention actually lines up with
+            medical expertise — glaucoma detection should highlight the optic disc, diabetic
+            retinopathy signals should concentrate on scattered microaneurysms. Explainability
+            as a correctness check, not an add-on bolted on after the fact.
+          </p>
+        </div>
+        <div class="beat">
+          <span class="beat-label">The outcome</span>
+          <p>
+            The CNN reaches 91.12% validation accuracy; the Swin Transformer reaches 94.08% —
+            the gap itself is the finding: the transformer's edge comes from reading broader
+            retinal patterns rather than isolated local features. Deployed live, not left in a
+            notebook.
+          </p>
+        </div>
+
+        <ul class="stack-list" aria-label="Technology stack">
+          <li>PyTorch 2.0+</li>
+          <li>timm (pretrained architectures)</li>
+          <li>Grad-CAM</li>
+          <li>Gradio</li>
+          <li>Hugging Face Spaces</li>
+        </ul>
+        <p>Trained on ~4,200 retinal images across four diagnostic categories (Kaggle's Eye Diseases Classification dataset).</p>
+
+        <div class="arch-toggle">
+          <div class="arch-buttons" role="group" aria-label="Compare architecture validation accuracy">
+            <button type="button" class="arch-btn is-active" data-arch="resnet" data-value="91.12" aria-pressed="true">ResNet18 (CNN)</button>
+            <button type="button" class="arch-btn" data-arch="swin" data-value="94.08" aria-pressed="false">Swin Transformer</button>
+          </div>
+          <div class="arch-bar-track"><div class="arch-bar-fill" id="archBarFill" style="width:91.12%"></div></div>
+          <div class="arch-readout-row">
+            <span class="arch-num" id="archNum">91.12%</span>
+            <span class="arch-cap">Validation accuracy — <span id="archLabel">ResNet18 (CNN)</span></span>
+          </div>
+        </div>
+
+        <div class="readout">CONFIDENCE — 0.9408 — SWIN-TINY</div>
+        <div class="project-links">
+          <a href="https://huggingface.co/spaces/Devasurya05/eye-disease-detection" rel="noopener">Live demo (Hugging Face Spaces) →</a>
+          <a href="https://github.com/Devasurya05/eye-disease-detection" rel="noopener">Repository →</a>
+        </div>
+        <p class="flag">
+          NEEDS: real prediction + Grad-CAM heatmap image pairs for a few example cases, to
+          extend this deep-dive with an actual raw-prediction vs. Grad-CAM overlay toggle.
+        </p>
+        </div>
+      </article>
+
+      <!-- THE GRINDSTONE: AutoPrompt -->
+      <article class="project" id="work-autoprompt" tabindex="-1" aria-labelledby="autoprompt-heading">
+        <div class="project-content">
+        <span class="kicker">LLM systems</span>
+        <h3 id="autoprompt-heading">AutoPrompt v2.0</h3>
+        <p>
+          A prompt is an edge you grind, not a sentence you guess. AutoPrompt is an
+          LLM prompt-optimization framework on Groq's API running Llama-3.1-8B: a Meta-LLM
+          generates and tests candidate prompts, baseline and optimized pipelines run
+          concurrently under semaphore-managed rate limits in an asyncio pipeline, and both
+          are scored against held-out test data — the numbers pick the winner, not taste.
+        </p>
+        <div class="readout">90% RUNTIME REDUCTION · +13% ACCURACY OVER BASELINE</div>
+        <p>
+          The evaluation work was carried into a co-authored IEEE/Springer conference paper —
+          the difference between a tool that works and a result that holds up to review.
+        </p>
+        <ul class="stack-list" aria-label="Technology stack">
+          <li>Python · asyncio</li>
+          <li>Groq API</li>
+          <li>Llama-3.1-8B</li>
+          <li>Semaphore-managed concurrency</li>
+        </ul>
+        <div class="project-links">
+          <a href="https://github.com/Devasurya05/autoprompt" rel="noopener">Repository →</a>
+        </div>
+        </div>
+      </article>
+
+      <!-- THE SCALES: Price Intelligence -->
+      <article class="project" id="work-price" tabindex="-1" aria-labelledby="price-heading">
+        <div class="project-content">
+        <span class="kicker">Full-stack ML</span>
+        <h3 id="price-heading">Second-Hand Price Intelligence</h3>
+        <p>
+          What is a used thing actually worth? A scraper collects real listings, an XGBoost
+          model predicts fair resale prices, FastAPI serves the backend, and a Streamlit
+          dashboard is the frontend — all containerized with Docker, the whole path from raw
+          listing to priced answer running end to end.
+        </p>
+        <ul class="stack-list" aria-label="Technology stack">
+          <li>XGBoost</li>
+          <li>FastAPI</li>
+          <li>Streamlit</li>
+          <li>Web scraping</li>
+          <li>Docker</li>
+        </ul>
+        <div class="project-links">
+          <a href="https://github.com/Devasurya05/second-hand-price-intelligence" rel="noopener">Repository →</a>
+        </div>
+        <p class="flag">
+          NEEDS: real CI-score / SHAP output examples, to extend this piece with a live
+          prediction-breakdown interaction like the brief originally envisioned.
+        </p>
+        </div>
+      </article>
+
+      <!-- THE TOME: StudIQ -->
+      <article class="project" id="work-studiq" tabindex="-1" aria-labelledby="studiq-heading">
+        <div class="project-content">
+        <span class="kicker">Applied AI — built with a team of five</span>
+        <h3 id="studiq-heading">StudIQ AI Tutor</h3>
+        <p>
+          An AI-powered personalized learning platform with adaptive tutoring, multi-role
+          support, and intelligent content analysis — Flask, MongoDB, and Google Gemini.
+          Built collaboratively with a team of five: the one piece on this bench that proves
+          the work holds up when it isn't a solo forge.
+        </p>
+        <ul class="stack-list" aria-label="Technology stack">
+          <li>Flask</li>
+          <li>MongoDB</li>
+          <li>Google Gemini</li>
+          <li>Team of five</li>
+        </ul>
+        <div class="project-links">
+          <a href="https://github.com/Devasurya05/studiq-ai-tutor" rel="noopener">Repository →</a>
+        </div>
+        </div>
+      </article>
+
+      <p class="flag">
+        NEEDS: confirm this is the complete works list (GitHub also has
+        Hackathon_23BTRCT034, PCL_Machine_Learning, and two coursework/practice repos —
+        left out here as likely too small/non-representative, but confirm).
+      </p>
+      <p class="view-next"><a href="#toolrack">Next — Skills →</a></p>
+    </div>
+  </section>
+
+  <!-- THE TOOLRACK -->
+  <section class="view" id="toolrack" tabindex="-1" aria-labelledby="toolrack-heading" hidden>
+    <div class="view-inner">
+      <a class="bench-return" href="#forge">⟵ Back to the workshop</a>
+      <div class="section-label"><h2 id="toolrack-heading">Skills</h2></div>
+      <p class="section-intro">Every tool here has been used on a real piece — nothing hangs on this rack for show.</p>
+
+      <div class="tool-group">
+        <h3>Machine intelligence</h3>
+        <ul class="stack-list" aria-label="Machine intelligence skills">
+          <li>PyTorch</li><li>timm</li><li>Grad-CAM</li><li>XGBoost</li>
+          <li>Gemini API</li><li>Groq / Llama</li><li>Prompt optimization</li>
+        </ul>
+      </div>
+      <div class="tool-group">
+        <h3>Backend &amp; systems</h3>
+        <ul class="stack-list" aria-label="Backend and systems skills">
+          <li>Python · asyncio</li><li>FastAPI</li><li>Flask</li>
+          <li>PostgreSQL</li><li>MongoDB</li><li>ChromaDB</li>
+          <li>Docker</li><li>Linux (LFCS)</li>
+        </ul>
+      </div>
+      <div class="tool-group">
+        <h3>Interfaces &amp; delivery</h3>
+        <ul class="stack-list" aria-label="Interface and delivery skills">
+          <li>React + Vite</li><li>Streamlit</li><li>Gradio</li>
+          <li>Hugging Face Spaces</li><li>Git</li>
+        </ul>
+      </div>
+      <div class="tool-group">
+        <h3>Ways of working</h3>
+        <ul class="stack-list" aria-label="Engineering practices">
+          <li>Explainability-first</li><li>Benchmark-driven decisions</li>
+          <li>Concurrency by design</li><li>Multi-tenancy from day one</li>
+          <li>Directed LLM collaboration</li>
+        </ul>
+      </div>
+      <p class="view-next"><a href="#offtheanvil">Next — After hours →</a></p>
+    </div>
+  </section>
+
+  <!-- OFF THE ANVIL -->
+  <section class="view" id="offtheanvil" tabindex="-1" aria-labelledby="anvil-heading" hidden>
+    <div class="view-inner">
+      <a class="bench-return" href="#forge">⟵ Back to the workshop</a>
+      <div class="section-label"><h2 id="anvil-heading">After hours</h2></div>
+      <p class="section-intro">What's on the shelf when the fire is banked.</p>
+      <p>
+        The one habit already on record: Japanese, studied independently to JLPT N5 and
+        continuing — the same slow, deliberate acquisition as any other craft skill, a few
+        characters at a time.
+      </p>
+      <p class="flag">
+        NEEDS: 2–3 real hobbies or off-hours interests from Devasurya to make this shelf
+        honest — nothing invented here. (The teacup and the plant in the scene are placeholders
+        until then.)
+      </p>
+      <p class="view-next"><a href="#wall">Next — The Visitors' Wall →</a></p>
+    </div>
+  </section>
+
+  <!-- THE VISITORS' WALL (guestbook) -->
+  <section class="view" id="wall" tabindex="-1" aria-labelledby="wall-heading" hidden>
+    <div class="view-inner">
+      <a class="bench-return" href="#forge">⟵ Back to the workshop</a>
+      <div class="section-label"><h2 id="wall-heading">The Visitors' Wall</h2><span>leave your mark</span></div>
+      <p class="section-intro">
+        If the workshop was worth the walk, hang your sigil on the shield. Every visitor
+        gets one strike — pick a sigil, pick a metal, sign it with your initials.
+      </p>
+
+      <div class="wall-layout">
+        <div class="wall-shield-box">
+          <svg id="wallShield" viewBox="0 0 400 480" role="img" aria-label="The visitors' shield">
+            <defs>
+              <clipPath id="shieldClip">
+                <path d="M200 34 C300 34 328 58 328 98 V222 C328 330 272 398 200 444 C128 398 72 330 72 222 V98 C72 58 100 34 200 34 Z"/>
+              </clipPath>
+            </defs>
+            <path class="shield-face" d="M200 34 C300 34 328 58 328 98 V222 C328 330 272 398 200 444 C128 398 72 330 72 222 V98 C72 58 100 34 200 34 Z"/>
+            <path class="shield-rim" d="M200 48 C290 48 314 70 314 104 V220 C314 318 264 382 200 426 C136 382 86 318 86 220 V104 C86 70 110 48 200 48 Z"/>
+            <g id="wallMarks" clip-path="url(#shieldClip)"></g>
+          </svg>
+          <p class="readout wall-count" id="wallCount" aria-live="polite">0 MARKS ON THE SHIELD</p>
+        </div>
+
+        <form id="markForm" class="mark-form" aria-label="Leave your mark">
+          <fieldset>
+            <legend>Choose your sigil</legend>
+            <div class="sigil-grid" id="sigilGrid"></div>
+          </fieldset>
+          <fieldset>
+            <legend>Choose your metal</legend>
+            <div class="color-row" id="colorRow"></div>
+          </fieldset>
+          <label class="initials-label" for="markInitials">Sign it (1–3 letters or digits)
+            <input id="markInitials" name="initials" maxlength="3" pattern="[A-Za-z0-9]{1,3}"
+                   autocomplete="off" spellcheck="false" required>
+          </label>
+          <button type="submit" class="arch-btn mark-submit">Strike your mark</button>
+          <p class="mark-status" id="markStatus" role="status"></p>
+          <p class="flag" id="wallMode"></p>
+        </form>
+      </div>
+      <p class="view-next"><a href="#correspondence">Next — Contact →</a></p>
+    </div>
+  </section>
+
+  <!-- CORRESPONDENCE -->
+  <section class="view" id="correspondence" tabindex="-1" aria-labelledby="contact-heading" hidden>
+    <div class="view-inner">
+      <a class="bench-return" href="#forge">⟵ Back to the workshop</a>
+      <footer aria-labelledby="contact-heading">
+        <div class="channel-close" id="channelClose" data-channel-close>
+          <span class="dot" aria-hidden="true"></span>
+          <span>The fire is banked — the channel stays open</span>
+        </div>
+        <h2 id="contact-heading">Contact</h2>
+        <ul class="contact-list">
+          <li><a href="mailto:devasurya05@gmail.com">devasurya05@gmail.com</a></li>
+          <li><a href="https://github.com/Devasurya05" rel="noopener">github.com/Devasurya05</a></li>
+          <li><a href="https://www.linkedin.com/in/devasurya-menon-520a1928a" rel="noopener">linkedin.com/in/devasurya-menon-520a1928a</a></li>
+          <li><a href="./assets/Devasurya_Menon_Resume.pdf" download="Devasurya_Menon_Resume.pdf">Résumé (PDF)</a></li>
+        </ul>
+      </footer>
+    </div>
+  </section>
+
+  </div>
+</main>
+
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>

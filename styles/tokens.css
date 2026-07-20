@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap');
+
+:root{
+  --void:#0a0a0c;
+  --void-2:#111114;
+  --brass:#b8853a;
+  --brass-bright:#e8a54b;
+  --signal-blue:#4a8fc2;
+  --signal-red:#c24a3f;
+  --paper:#e8e2d3;
+  --paper-dim:#8c8879;
+  --line:rgba(184,133,58,0.22);
+
+  /* Forge heat range — used ONLY where something is literally hot:
+     the hearth, ember particles, and the heat-up state of a hovered
+     hotspot. Structure and text stay brass/paper. */
+  --ember:#ff7a2f;
+  --ember-bright:#ffb36b;
+  --ember-deep:#8a2e10;
+
+  /* Signature easing token — the one damped/overshoot curve, reused
+     deliberately in a small number of places (see build brief, section 2). */
+  --ease-settle: cubic-bezier(.2,1.4,.3,1);
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+html{ background:var(--void); }

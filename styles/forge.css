@@ -1,0 +1,200 @@
+/* =========================================================
+   THE FORGE — home scene
+   A wide illustrated SVG workshop (viewBox 3200x900) whose
+   objects are real <a> hotspots. The home screen never scrolls
+   vertically: wheel / drag / arrow keys pan the camera sideways
+   across the room (js/forge.js translates .forge-pan). Choosing
+   a hotspot plays a camera zoom (transform-origin on
+   .forge-world) behind the shared .veil, then the router opens
+   that object's own view. All motion is disabled wholesale by
+   the global prefers-reduced-motion rule in responsive.css.
+   ========================================================= */
+
+.forge-stage{
+  position:relative;
+  height:100svh;
+  min-height:540px;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+body.in-view .forge-stage{ display:none; }
+
+/* The scene keeps clear of the section-index bar at the bottom (48px strip),
+   so floor-level nameplates are never covered by it. */
+.forge-scroll{ position:absolute; inset:0; bottom:48px; overflow:hidden; }
+.forge-pan{
+  position:absolute; top:0; bottom:0; left:0;
+  will-change:transform;
+}
+.forge-world{
+  position:relative; height:100%;
+  /* room height always fills the scene strip; width follows the 3200:900 scene */
+  width:calc((100svh - 48px) * 3.5556);
+  min-width:calc(492px * 3.5556);
+  transition:transform .7s var(--ease-settle);
+  will-change:transform;
+}
+.forge-world.is-zooming{ transform:scale(2.3); }
+.forge-scene{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+.forge-embers{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+
+/* Parallax: each layer drifts opposite the pointer, deeper = less. */
+.layer{ transition:transform .35s ease-out; }
+.layer-wall{ transform:translate(calc(var(--px,0) * -6px),  calc(var(--py,0) * -4px)); }
+.layer-mid{  transform:translate(calc(var(--px,0) * -12px), calc(var(--py,0) * -8px)); }
+.layer-fore{ transform:translate(calc(var(--px,0) * -20px), calc(var(--py,0) * -12px)); }
+
+/* Shared transition veil (body-level, covers everything during camera moves). */
+.veil{
+  position:fixed; inset:0; z-index:150;
+  background:var(--void);
+  opacity:0; pointer-events:none;
+  transition:opacity .55s ease;
+}
+.veil.is-dark{ opacity:1; }
+
+/* ---------- Scene material ---------- */
+.forge-scene .art{
+  stroke:var(--brass); stroke-width:1.5; fill:none;
+  stroke-linecap:round; stroke-linejoin:round;
+  transition:stroke .3s ease;
+}
+.forge-scene .art .seal{ fill:var(--brass-bright); stroke:none; opacity:0.85; }
+.forge-scene .art .billet{ stroke:none; }
+.forge-scene .art .sparks{ stroke:var(--brass-bright); }
+.forge-scene .plate-mini{
+  font-family:'IBM Plex Mono', monospace; font-size:13px;
+  fill:var(--paper-dim); stroke:none;
+}
+.forge-scene .sign-text{
+  font-family:'IBM Plex Mono', monospace; font-size:17px; letter-spacing:0.32em;
+  fill:var(--paper-dim); stroke:none; text-anchor:middle; dominant-baseline:middle;
+}
+
+/* ---------- Hotspots ---------- */
+.hotspot{ cursor:pointer; outline:none; }
+.hotspot .heat{ opacity:0; transition:opacity .4s ease; }
+.hotspot .plate{ opacity:0; transition:opacity .3s ease; }
+.hotspot .plate rect{
+  fill:var(--void-2); stroke:var(--line); rx:2;
+}
+.hotspot .plate text{
+  font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.1em;
+  fill:var(--paper); text-anchor:middle; dominant-baseline:middle;
+}
+.hotspot:hover .art,
+.hotspot:focus-visible .art{ stroke:var(--ember-bright); }
+.hotspot:hover .heat,
+.hotspot:focus-visible .heat,
+.hotspot:hover .plate,
+.hotspot:focus-visible .plate{ opacity:1; }
+.hotspot:focus-visible .plate rect{ stroke:var(--signal-blue); }
+
+/* ---------- Fire flicker (subtle, ambient) ---------- */
+@keyframes flicker{
+  0%,100%{ opacity:1; } 42%{ opacity:0.82; } 58%{ opacity:0.94; } 74%{ opacity:0.78; }
+}
+@keyframes flicker-slow{
+  0%,100%{ opacity:1; } 50%{ opacity:0.75; }
+}
+.flicker{ animation:flicker 2.7s ease-in-out infinite; }
+.flicker-slow{ animation:flicker-slow 5.6s ease-in-out infinite; }
+
+/* ---------- Hero copy over the scene ---------- */
+.forge-stage .hero-content{
+  position:absolute; z-index:2;
+  top:clamp(72px, 12vh, 140px); left:clamp(24px, 5vw, 72px);
+  max-width:520px;
+  pointer-events:none;
+}
+/* Soft scrim so the copy stays readable over whatever sits behind it. */
+.forge-stage .hero-content::before{
+  content:'';
+  position:absolute; z-index:-1;
+  inset:-80px -120px -60px -80px;
+  background:radial-gradient(ellipse at 35% 40%, rgba(10,10,12,0.92), rgba(10,10,12,0.55) 55%, transparent 78%);
+  pointer-events:none;
+}
+.forge-stage h1{
+  font-family:'Fraunces', serif;
+  font-optical-sizing:auto; font-weight:500;
+  font-size:clamp(40px, 6.5vw, 76px);
+  line-height:1.03; letter-spacing:-0.01em;
+  color:var(--paper); margin-bottom:20px;
+  text-shadow:0 2px 24px rgba(10,10,12,0.8);
+}
+.forge-stage .identity{
+  font-size:17px; line-height:1.6; color:var(--paper-dim);
+  text-shadow:0 1px 12px rgba(10,10,12,0.9);
+}
+.forge-stage .identity strong{ color:var(--paper); font-weight:500; }
+.forge-stage .scroll-cue{
+  margin-top:26px;
+  font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--paper-dim); opacity:0.8;
+  display:flex; align-items:center; gap:10px;
+}
+.forge-stage .scroll-cue::after{ content:''; width:28px; height:1px; background:var(--line); }
+
+/* ---------- Plain section index (no-JS / no-pointer path) ---------- */
+.forge-index{
+  position:absolute; z-index:2; left:0; right:0; bottom:0;
+  display:flex; flex-wrap:wrap; justify-content:center; gap:0;
+  background:rgba(10,10,12,0.82);
+  border-top:1px solid var(--line);
+}
+.forge-index a{
+  font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--paper-dim); text-decoration:none;
+  padding:14px 18px; border-left:1px solid var(--line);
+  transition:color .2s ease;
+}
+.forge-index a:first-child{ border-left:none; }
+.forge-index a:hover, .forge-index a:focus-visible{ color:var(--ember-bright); }
+
+/* ---------- Ambience (sound) toggle ---------- */
+.ambience-toggle{
+  position:absolute; z-index:2; right:clamp(24px, 5vw, 72px); bottom:64px;
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--paper-dim); background:rgba(10,10,12,0.6);
+  border:1px solid var(--line); border-radius:2px;
+  padding:10px 14px; min-height:44px; cursor:pointer;
+  transition:color .2s ease, border-color .2s ease;
+}
+.ambience-toggle .dot{
+  width:7px; height:7px; border-radius:50%;
+  background:var(--paper-dim);
+  transition:background-color .3s ease, box-shadow .3s ease;
+}
+.ambience-toggle:hover, .ambience-toggle:focus-visible{ color:var(--ember-bright); border-color:var(--ember-bright); }
+.ambience-toggle[aria-pressed="true"]{ color:var(--ember-bright); border-color:var(--ember-bright); }
+.ambience-toggle[aria-pressed="true"] .dot{
+  background:var(--ember); box-shadow:0 0 8px 1px rgba(255,122,47,0.6);
+}
+
+/* ---------- Small screens: the workshop becomes a strip you pan by hand.
+     Native horizontal scroll = the camera-pan gesture, no JS required.
+     Nameplates stay visible (no hover on touch). ---------- */
+@media (max-width:700px), (hover:none){
+  .hotspot .plate{ opacity:0.8; }
+  .hotspot .heat{ opacity:0.35; }
+}
+@media (max-width:700px){
+  .forge-stage{ height:auto; min-height:0; display:flex; flex-direction:column; }
+  .forge-stage .hero-content{
+    position:static; max-width:none; order:-1;
+    padding:24px 16px 20px;
+  }
+  .forge-stage .hero-content::before{ content:none; }
+  .forge-scroll{
+    position:relative; inset:auto;
+    overflow-x:auto; -webkit-overflow-scrolling:touch;
+  }
+  .forge-pan{ position:relative; inset:auto; transform:none !important; }
+  .forge-world{ position:relative; width:2200px; min-width:0; height:auto; }
+  .forge-scene{ position:relative; inset:auto; width:2200px; height:auto; aspect-ratio:3200/900; }
+  .forge-world.is-zooming{ transform:none; } /* fade-only transition on phones */
+  .forge-index{ position:relative; }
+  .ambience-toggle{ position:relative; left:16px; right:auto; bottom:auto; margin:14px 0 16px; }
+}

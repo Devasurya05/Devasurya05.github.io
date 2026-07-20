@@ -1,0 +1,4 @@
+# Local tooling and internal build notes — not part of the published site
+.claude/
+portfolio-build-brief.md
+instrument-language-test.html

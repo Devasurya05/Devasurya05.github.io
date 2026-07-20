@@ -1,0 +1,113 @@
+/* =========================================================
+   VIEWS — each section is its own "page". Hidden by default;
+   the router (js/views.js) removes [hidden] on exactly one and
+   toggles body.at-home / body.in-view. Content inside stays the
+   ordinary semantic DOM the rest of the styles already dress.
+   ========================================================= */
+
+/* Home never scrolls vertically — the room pans sideways instead. */
+@media (min-width:701px){
+  body.at-home{ overflow:hidden; height:100vh; }
+}
+
+.view{ display:none; }
+.view.is-open{ display:block; }
+.view:focus{ outline:none; }
+
+.view-inner{
+  max-width:920px; margin:0 auto;
+  padding:88px 24px 80px;
+}
+.view-inner > .bench-return{ display:inline-block; margin-bottom:36px; }
+
+.view-next{
+  margin-top:56px; padding-top:20px;
+  border-top:1px solid var(--line);
+  font-family:'IBM Plex Mono', monospace; font-size:12px;
+}
+.view-next a{ text-decoration:none; }
+.view-next a:hover, .view-next a:focus-visible{ text-decoration:underline; }
+
+/* ---------- THE VISITORS' WALL ---------- */
+.wall-layout{
+  display:grid; grid-template-columns:minmax(280px, 420px) minmax(260px, 1fr);
+  gap:40px; align-items:start;
+}
+@media (max-width:760px){
+  .wall-layout{ grid-template-columns:1fr; }
+}
+.wall-shield-box svg{ width:100%; height:auto; display:block; }
+.shield-face{
+  fill:var(--void-2); stroke:var(--brass); stroke-width:2;
+}
+.shield-rim{
+  fill:none; stroke:var(--line); stroke-width:1;
+}
+.wall-count{ text-align:center; }
+
+.mark-form fieldset{
+  border:1px solid var(--line); border-radius:2px;
+  padding:16px; margin-bottom:20px;
+}
+.mark-form legend{
+  font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--paper-dim); padding:0 8px;
+}
+.sigil-grid{ display:flex; flex-wrap:wrap; gap:8px; }
+.sigil-option input, .color-option input{
+  position:absolute; opacity:0; pointer-events:none;
+}
+.sigil-option, .color-option{ position:relative; display:inline-block; cursor:pointer; }
+.sigil-option svg{
+  width:52px; height:52px; display:block;
+  border:1px solid var(--line); border-radius:2px;
+  transition:border-color .2s ease, background-color .2s ease;
+}
+.sigil-option svg path{
+  stroke:var(--paper-dim); stroke-width:1.6; fill:none;
+  stroke-linecap:round; stroke-linejoin:round;
+  transition:stroke .2s ease;
+}
+.sigil-option:hover svg{ border-color:var(--brass-bright); }
+.sigil-option input:checked + svg{ border-color:var(--ember-bright); background:rgba(255,122,47,0.08); }
+.sigil-option input:checked + svg path{ stroke:var(--ember-bright); }
+.sigil-option input:focus-visible + svg{ outline:2px solid var(--signal-blue); outline-offset:2px; }
+
+.color-row{ display:flex; flex-wrap:wrap; gap:10px; }
+.color-option .swatch{
+  width:36px; height:36px; display:block; border-radius:50%;
+  border:2px solid transparent;
+  transition:border-color .2s ease, transform .2s ease;
+}
+.color-option:hover .swatch{ transform:scale(1.08); }
+.color-option input:checked + .swatch{ border-color:var(--paper); }
+.color-option input:focus-visible + .swatch{ outline:2px solid var(--signal-blue); outline-offset:2px; }
+
+.initials-label{
+  display:block; margin-bottom:20px;
+  font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--paper-dim);
+}
+.initials-label input{
+  display:block; margin-top:8px; width:120px;
+  background:var(--void-2); color:var(--paper);
+  border:1px solid var(--line); border-radius:2px;
+  font-family:'IBM Plex Mono', monospace; font-size:20px; letter-spacing:0.2em; text-transform:uppercase;
+  padding:10px 12px;
+}
+.initials-label input:focus-visible{ outline:2px solid var(--signal-blue); outline-offset:2px; }
+.mark-submit{ font-size:12px; }
+.mark-status{
+  margin-top:14px; min-height:1.4em;
+  font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ember-bright);
+}
+
+/* New-mark settle: one-shot pop on the freshly struck sigil. */
+@keyframes mark-strike{
+  0%{ transform:scale(2.6); opacity:0; }
+  100%{ transform:scale(1); opacity:1; }
+}
+.mark-new{
+  animation:mark-strike .6s var(--ease-settle) both;
+  transform-origin:center; transform-box:fill-box;
+}

@@ -1,0 +1,56 @@
+/* =========================================================
+   ACT-SPECIFIC LAYOUT
+   The Forge (hero, see forge.css) -> The Signal -> The Smith
+   -> The Craft -> Forgeworks -> The Toolrack -> Off the Anvil
+   -> Correspondence.
+   ========================================================= */
+
+/* ---------- TRACEFLOW CENTERPIECE ---------- */
+/* Click-through, not scroll-driven: the reader controls the pace through
+   problem -> decision -> mechanism -> outcome, the same way they would with
+   any other stage-clicker on the page. Builds on the shared .project shell;
+   only the emphasis differs. */
+.centerpiece{
+  padding:56px clamp(20px,5vw,64px);
+}
+.centerpiece h3{
+  font-size:clamp(32px,5vw,52px);
+  max-width:16ch;
+}
+.centerpiece-sub{ color:var(--paper-dim); max-width:56ch; font-size:17px; margin-bottom:8px; }
+
+.centerpiece-stages{ margin-top:32px; }
+.cp-nav{ display:flex; flex-wrap:wrap; gap:2px; margin-bottom:2px; }
+.cp-nav-btn{
+  font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase;
+  color:var(--paper-dim); background:transparent; border:1px solid var(--line);
+  padding:10px 14px; min-height:44px; display:inline-flex; align-items:center;
+  cursor:pointer; transition:color .2s ease, border-color .2s ease, background-color .2s ease;
+}
+.cp-nav-btn.is-active{ color:var(--void); background:var(--brass-bright); border-color:var(--brass-bright); }
+.cp-nav-btn:not(.is-active):hover{ color:var(--brass-bright); border-color:var(--brass-bright); }
+.cp-panels{ border:1px solid var(--line); border-top:none; padding:24px; max-width:640px; }
+.cp-stage p{ color:var(--paper); font-size:16px; margin-bottom:14px; max-width:64ch; }
+.cp-stage .readout{ display:inline-block; margin:8px 0 0; }
+.cp-stage-label{
+  font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--brass-bright); margin-bottom:10px; display:block;
+}
+
+/* ---------- CORRESPONDENCE (closing signature moment) ---------- */
+.channel-close{
+  position:relative;
+  margin-top:8px; margin-bottom:24px;
+  font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--paper-dim);
+  display:flex; align-items:center; gap:12px;
+}
+.channel-close .dot{
+  width:8px; height:8px; border-radius:50%;
+  background:var(--brass); flex-shrink:0;
+  transition:background-color .6s ease, box-shadow .6s ease;
+}
+.channel-close.is-locked .dot{
+  background:var(--brass-bright);
+  box-shadow:0 0 12px 2px rgba(232,165,75,0.5);
+}

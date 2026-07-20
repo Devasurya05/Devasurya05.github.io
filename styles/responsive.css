@@ -1,0 +1,15 @@
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:640px){
+  .view-inner{ padding:32px 16px 96px; } /* bottom clears the fixed corner-links bar */
+  .corner-links{ top:auto; bottom:0; left:0; right:0; border-left:none; border-bottom:none; border-top:1px solid var(--line); justify-content:space-between; }
+  .corner-links a{ flex:1; text-align:center; padding:14px 8px; font-size:10px; }
+  .scroll-cue{ display:none; }
+  .project{ padding:24px 18px; }
+  .signal{ min-height:30vh; margin:32px 0; }
+  .centerpiece{ padding:40px 18px; }
+}
+
+/* ---------- REDUCED MOTION ---------- */
+@media (prefers-reduced-motion: reduce){
+  *{ transition:none !important; animation:none !important; }
+}
