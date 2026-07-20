@@ -31,6 +31,12 @@ create policy "anyone can read marks"
 
 create policy "anyone can add a mark"
   on public.marks for insert with check (true);
+
+-- Newer Supabase projects don't auto-grant API access to new tables,
+-- so give the public (anon) role exactly what the wall needs and no more:
+grant usage on schema public to anon;
+grant select, insert on public.marks to anon;
+grant usage on sequence public.marks_id_seq to anon;
 ```
 
 The `check` constraints mirror the site's own validation, so even someone calling the

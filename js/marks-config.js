@@ -7,6 +7,6 @@
 //
 // The anon key is designed to be public (it only grants what the database's
 // row-level-security policies allow) — committing it here is expected.
-export const BACKEND = 'local'; // 'local' | 'supabase'
-export const SUPABASE_URL = '';      // e.g. 'https://abcdefgh.supabase.co'
-export const SUPABASE_ANON_KEY = ''; // the project's anon/public API key
+export const BACKEND = 'supabase';
+export const SUPABASE_URL = 'https://lnplvuiaufxnzdabvbds.supabase.co';
+export const SUPABASE_ANON_KEY = 'sb_publishable_bDgEXw8Ufk9pidu4TX4jAw_EIbYg-YX';
