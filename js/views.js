@@ -62,16 +62,23 @@ function setHash(id){
 
 // id === null means "go home". opts.after runs once the swap has happened
 // (still under the veil) — forge.js uses it to reset the camera zoom.
+//
+// The post-swap pause before lifting the veil uses setTimeout, not
+// requestAnimationFrame — rAF can be throttled or fully paused by the
+// browser while the tab is backgrounded/inactive, which would leave `busy`
+// stuck true and the veil stuck dark, silently deadlocking every future
+// navigation until the page is reloaded. setTimeout still fires (even if
+// delayed) regardless of tab visibility, so navigation always recovers.
 export function navigate(id, opts = {}){
   if(busy) return;
   const doSwap = () => {
     if(id) showView(id); else showHome();
     setHash(id);
     if(opts.after) opts.after();
-    requestAnimationFrame(() => requestAnimationFrame(() => {
+    setTimeout(() => {
       veil().classList.remove('is-dark');
       busy = false;
-    }));
+    }, 32);
   };
   if(reduceMotion){ doSwap(); return; }
   busy = true;

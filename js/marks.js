@@ -132,6 +132,21 @@ function renderSceneMark(container, mark, i){
   container.appendChild(g);
 }
 
+// Chromium (and some WebKit builds) can leave a clip-path'd group's newly
+// appended children unpainted until something else forces a repaint — the
+// group's own bounding geometry changed, but the clip mask doesn't
+// invalidate on its own. Re-applying the clip-path attribute forces the
+// browser to recompute it immediately instead of waiting for an unrelated
+// repaint (like navigating away and back).
+function reclip(el){
+  if(!el) return;
+  const cp = el.getAttribute('clip-path');
+  if(!cp) return;
+  el.removeAttribute('clip-path');
+  void el.getBBox();
+  el.setAttribute('clip-path', cp);
+}
+
 function renderAll(marks, newIndex){
   const container = document.getElementById('wallMarks');
   const count = document.getElementById('wallCount');
@@ -139,11 +154,13 @@ function renderAll(marks, newIndex){
     while(container.firstChild) container.removeChild(container.firstChild);
     marks.forEach((m, i) => renderMark(container, m, i, i === newIndex));
     count.textContent = marks.length + (marks.length === 1 ? ' MARK' : ' MARKS') + ' ON THE SHIELD';
+    reclip(container);
   }
   const scene = document.getElementById('sceneMarks');
   if(scene){
     while(scene.firstChild) scene.removeChild(scene.firstChild);
     marks.slice(0, 90).forEach((m, i) => renderSceneMark(scene, m, i));
+    reclip(scene);
   }
 }
 
@@ -188,6 +205,7 @@ function buildOptions(){
 }
 
 function lockForm(form, status, message){
+  form.classList.add('is-struck');
   form.querySelectorAll('input, button').forEach(el => { el.disabled = true; });
   if(message) status.textContent = message;
 }
@@ -203,7 +221,7 @@ export function initWall(){
   if(mode){
     mode.textContent = supabaseReady
       ? 'Marks are shared with every visitor — one strike each.'
-      : 'DEMO MODE — marks are stored in this browser only. To share the wall with every visitor, connect the free guestbook backend (see README-GUESTBOOK.md).';
+      : 'DEMO MODE — marks are stored in this browser only.';
   }
 
   let marks = [];

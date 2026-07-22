@@ -139,9 +139,11 @@ export function initForge(){
         delay: isNarrow() ? 380 : 620,
         after(){
           // Reset the camera silently while the veil still covers it.
+          // setTimeout, not requestAnimationFrame — see the comment on
+          // navigate() in views.js for why rAF isn't safe to rely on here.
           world.style.transition = 'none';
           world.classList.remove('is-zooming');
-          requestAnimationFrame(() => { world.style.transition = ''; });
+          setTimeout(() => { world.style.transition = ''; }, 16);
         }
       });
     });

@@ -7,7 +7,6 @@ import { initProximityReveal } from './proximityReveal.js';
 import { initArchToggle } from './archToggle.js';
 import { initCenterpiece } from './centerpiece.js';
 import { initAmbient } from './ambient.js';
-import { initClosingMoment } from './closingMoment.js';
 
 document.addEventListener('DOMContentLoaded', function(){
   initViews();   // router first, so a deep-linked hash lands before anything measures
@@ -19,5 +18,4 @@ document.addEventListener('DOMContentLoaded', function(){
   initArchToggle();
   initCenterpiece();
   initAmbient();
-  initClosingMoment();
 });

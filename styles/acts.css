@@ -37,20 +37,3 @@
   color:var(--brass-bright); margin-bottom:10px; display:block;
 }
 
-/* ---------- CORRESPONDENCE (closing signature moment) ---------- */
-.channel-close{
-  position:relative;
-  margin-top:8px; margin-bottom:24px;
-  font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
-  color:var(--paper-dim);
-  display:flex; align-items:center; gap:12px;
-}
-.channel-close .dot{
-  width:8px; height:8px; border-radius:50%;
-  background:var(--brass); flex-shrink:0;
-  transition:background-color .6s ease, box-shadow .6s ease;
-}
-.channel-close.is-locked .dot{
-  background:var(--brass-bright);
-  box-shadow:0 0 12px 2px rgba(232,165,75,0.5);
-}

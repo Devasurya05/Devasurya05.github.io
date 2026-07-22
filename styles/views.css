@@ -45,6 +45,8 @@
 }
 .wall-count{ text-align:center; }
 
+.mark-form.is-struck .mark-picker{ display:none; }
+
 .mark-form fieldset{
   border:1px solid var(--line); border-radius:2px;
   padding:16px; margin-bottom:20px;

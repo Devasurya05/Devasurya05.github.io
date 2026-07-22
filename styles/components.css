@@ -10,7 +10,7 @@
   border-radius:2px;
   background:var(--void-2);
   padding:32px clamp(20px,4vw,40px);
-  margin-bottom:32px;
+  margin-bottom:64px;
 }
 .project:last-child{ margin-bottom:0; }
 .project::before{
@@ -89,7 +89,12 @@
 .arch-num{ font-family:'IBM Plex Mono', monospace; font-size:28px; color:var(--brass-bright); }
 .arch-cap{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--paper-dim); }
 
-/* ---------- THE CRAFT: creed grid ---------- */
+/* ---------- HOW I WORK: creed grid ---------- */
+.subsection-label{
+  font-family:'Fraunces', serif; font-weight:500; font-size:22px;
+  color:var(--paper); margin:48px 0 20px; padding-top:32px;
+  border-top:1px solid var(--line);
+}
 .creed{
   display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
   gap:20px; margin-bottom:36px;
@@ -100,21 +105,11 @@
   transition:border-color .2s ease;
 }
 .creed-item:hover{ border-color:var(--brass); }
-.creed-num{
-  font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.12em;
-  color:var(--brass-bright); display:block; margin-bottom:12px;
-}
 .creed-item h3{
   font-family:'Fraunces', serif; font-weight:500; font-size:20px;
   color:var(--paper); margin-bottom:10px;
 }
 .creed-item p{ color:var(--paper); font-size:15px; }
-.creed-fire{
-  border-left:2px solid var(--ember);
-  background:rgba(255,122,47,0.05);
-  padding:18px 22px; max-width:72ch;
-}
-.creed-fire p{ color:var(--paper); }
 
 /* ---------- THE TOOLRACK: skill groups ---------- */
 .tool-group{ margin-bottom:26px; }

@@ -1,24 +1,41 @@
-# The Forge — Devasurya J Menon
+# Devasurya Portfolio — The Forge
 
-My portfolio, built as an ambient blacksmith's workshop you can walk through.
+My portfolio, built as a blacksmith's workshop instead of a normal project list.
 
 **Live:** https://devasurya05.github.io
 
-Scroll to pan across the room. Everything on the bench is a real project — step close
-and it heats up; pick it up and it shows you how it was made. Visitors can strike
-their own mark into the shield on the far wall.
+Scroll (or drag) to pan across the room. Everything on the bench and around the
+walls is clickable — pick something up and it opens into a full page about it, no
+reload, no waiting. There's also a shield on the wall where visitors can leave their
+own mark, and you can see everyone else's who has too.
+
+The blacksmith theme fits because I like making things, and this felt like a more
+honest way to show that than a plain list of projects.
 
 ## How it's built
 
-Hand-written HTML/CSS/JS — no frameworks, no build step, no dependencies.
+- Made entirely with Claude — I directed the design and reviewed every detail
+  myself. Part of the point was seeing how much I could build using just Claude and
+  prompting, with no other outside tools or resources.
+- The whole workshop is one hand-drawn SVG scene, no images. It has parallax,
+  glowing embers on a canvas, and background fire/hammer sounds generated in the
+  browser — no audio files.
+- Each section (projects, skills, and so on) opens instantly on the same page
+  instead of loading a new one, and the browser's back button still works normally.
+- The guestbook (the shield) is backed by a small free database (Supabase), so
+  marks are shared with everyone who visits, not just stored on your own device.
+- Plain HTML, CSS, and JavaScript — no frameworks, no build tools, nothing to
+  install.
 
-- The workshop is a single hand-drawn SVG scene (3200×900) with pointer parallax,
-  a canvas ember system, and synthesized WebAudio fire ambience (no audio files).
-- Each section is a hash-routed full-screen view in the same document — zero
-  navigation load time, working back button, `Esc` returns to the workshop.
-- The Visitors' Wall stores marks (a sigil + metal + initials, strictly validated)
-  via Supabase's free tier; see [README-GUESTBOOK.md](README-GUESTBOOK.md).
-- Accessible: real semantic DOM under the scene, keyboard-reachable hotspots,
-  `prefers-reduced-motion` respected, touch-native panning on phones.
+## How it all comes together
 
-Forged in a directed collaboration with Claude.
+The room is one big SVG drawing, and a bit of JavaScript moves the camera across it
+as you scroll or drag. Clicking something zooms the camera toward it, fades to
+black for a moment, then swaps in that section's content — which is really just a
+different part of the same page becoming visible, so there's no reload.
+
+The fire, embers, and hammer sounds aren't recordings — they're generated on the
+fly with the Web Audio API, which is why the site has no audio files to load. The
+guestbook works like any small web app: the page sends your mark to a database over
+the internet, and everyone else's page reads from that same database, which is why
+marks show up for every visitor instead of just your own browser.
