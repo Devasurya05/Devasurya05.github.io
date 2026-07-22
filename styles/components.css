@@ -122,6 +122,9 @@
 
 /* ---------- THE SMITH / OFF THE ANVIL prose ---------- */
 #smith p, #offtheanvil p{ max-width:70ch; margin-bottom:18px; color:var(--paper); }
+.after-hours-close{
+  color:var(--paper-dim); font-style:italic; margin-top:32px;
+}
 .credentials{ list-style:none; margin-top:28px; }
 .credentials li{
   font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--paper-dim);

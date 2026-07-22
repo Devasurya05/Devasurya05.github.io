@@ -447,21 +447,21 @@
       </p>
       <ul class="credentials">
         <li><span>Jain University</span><span>CGPA 8.8</span></li>
-        <li><span>Published paper</span><span>Co-authored — AutoPrompt evaluation work</span></li>
+        <li><span>Accepted paper</span><span>Co-authored — AutoPrompt evaluation work</span></li>
         <li><span>JLPT N5</span><span>Japanese language proficiency</span></li>
       </ul>
 
       <h3 class="subsection-label">How I work</h3>
       <div class="creed">
         <article class="creed-item">
-          <h3>Creative and adaptable</h3>
+          <h3>Creative &amp; Adaptable</h3>
           <p>
             I try to stay creative and adapt to whatever a problem actually needs,
             rather than force the same approach onto everything.
           </p>
         </article>
         <article class="creed-item">
-          <h3>Understand it first</h3>
+          <h3>Understand It First</h3>
           <p>
             If I don't fully understand something, I stop and figure it out before
             moving on — no matter how long that takes. I'd rather get there properly
@@ -469,12 +469,20 @@
           </p>
         </article>
         <article class="creed-item">
-          <h3>AI is a tool, not a shortcut</h3>
+          <h3>AI Is a Tool, Not a Shortcut</h3>
           <p>
             I think AI should make people more efficient, not replace the
             understanding underneath. Using it well still comes down to knowing the
             domain and directing it properly — the direction matters as much as the
             tool.
+          </p>
+        </article>
+        <article class="creed-item">
+          <h3>Finish What I Start</h3>
+          <p>
+            I'd rather ship something complete and working than leave it half-built.
+            If I build something, I want it to run end to end, not just look good in
+            a notebook or a demo.
           </p>
         </article>
       </div>
@@ -511,7 +519,10 @@
         <p class="centerpiece-sub">
           TraceFlow looks at a fault report from a factory machine and puts together a
           root-cause analysis automatically. You send it details about what went wrong,
-          and it comes back with a written report instead of a raw log dump.
+          and it comes back with a written report instead of a raw log dump. It's built
+          to run as a proper background service — nothing waits around for the analysis
+          to finish — and it's set up to handle more than one client's data at once
+          without any of it mixing together.
         </p>
 
         <ul class="stack-list" aria-label="Technology stack">
@@ -602,7 +613,9 @@
         <p>
           This project detects eye diseases from retinal images, and — just as important —
           shows why it made that call. Every prediction comes with a heatmap of what the
-          model was actually looking at, not just a label.
+          model was actually looking at, not just a label. It covers four diagnostic
+          categories, and the whole point was to treat explainability as something the
+          model has to earn, not a nice extra tacked on afterward.
         </p>
 
         <div class="beat">
@@ -678,19 +691,24 @@
         <span class="kicker">LLM systems</span>
         <h3 id="autoprompt-heading">AutoPrompt v2.0</h3>
         <p>
-          AutoPrompt automatically improves prompts for an LLM instead of me tweaking them by
-          hand. It runs on Groq's API using Llama-3.1-8B.
+          AutoPrompt automatically improves prompts for an LLM instead of me tweaking them
+          by hand. It runs on Groq's API using Llama-3.1-8B, and the idea is simple: instead
+          of guessing which phrasing works best, let a separate process generate variations
+          and actually test them. It grew out of wanting prompt engineering to be less
+          trial-and-error and more of a measured process.
         </p>
         <p>
-          A separate model generates and tests candidate prompts. Baseline and optimized
-          versions run at the same time using asyncio, with rate limits managed through
-          semaphores, and both get scored against held-out test data — so the better prompt is
-          picked based on actual results, not a guess.
+          A separate model generates and tests candidate prompts against the task. Baseline
+          and optimized versions run at the same time using asyncio, with rate limits managed
+          through semaphores so nothing gets throttled or dropped. Both versions get scored
+          against held-out test data, so the better prompt is picked on actual results, not a
+          guess — and running everything concurrently is also what makes the whole pipeline
+          noticeably faster than testing prompts one at a time.
         </p>
         <div class="readout">90% RUNTIME REDUCTION · +13% ACCURACY OVER BASELINE</div>
         <p>
-          This work also became a co-authored paper, which was a good lesson in the difference
-          between a tool that works and a result that holds up to review.
+          This work also became a co-authored, accepted paper, which was a good lesson in the
+          difference between a tool that works and a result that holds up to review.
         </p>
         <ul class="stack-list" aria-label="Technology stack">
           <li>Python · asyncio</li>
@@ -712,12 +730,16 @@
         <p>
           This tool estimates a fair resale price for second-hand items. A scraper pulls real
           listings, an XGBoost model predicts the price, and the whole thing is wrapped in a
-          proper backend and dashboard.
+          proper backend and dashboard instead of living in a notebook. The goal was to build
+          something a person could actually open and use to check what their stuff might sell
+          for, not just a proof-of-concept script.
         </p>
         <p>
           FastAPI serves the backend, a Streamlit dashboard is the frontend, and everything
           runs containerized with Docker — a complete path from raw listing data to a usable
-          price estimate, not just a model in a notebook.
+          price estimate. The scraper handles data collection on its own, feeding real
+          listings into the model instead of relying on a static dataset, so the predictions
+          stay grounded in what's actually being sold.
         </p>
         <ul class="stack-list" aria-label="Technology stack">
           <li>XGBoost</li>
@@ -741,19 +763,37 @@
         <div class="project-content">
         <span class="kicker">Applied ML</span>
         <h3 id="diabetes-heading">Diabetes Prediction</h3>
-        <p class="flag">
-          NEEDS: this slot replaced StudIQ per request, but the repo wasn't findable on
-          GitHub to pull real details from — send over the repo link (and a line on what it
-          does) and this gets filled in properly rather than guessed at.
+        <p>
+          This project compares a batch of different machine learning algorithms to see
+          which one actually predicts diabetes best from patient health data — glucose
+          levels, BMI, blood pressure, age, and a few other clinical measurements. Instead
+          of picking one model and going with it, the idea was to run many side by side
+          under the same conditions and let the results decide. It was a shared project
+          with a teammate, and each of us tried a different way of preparing the data
+          before classification.
         </p>
+        <p>
+          My part used PCA for dimensionality reduction paired with a kernel SVM (RBF
+          kernel), run against the standard eight-feature diabetes dataset —
+          Pregnancies, Glucose, Blood Pressure, Skin Thickness, Insulin, BMI, Diabetes
+          Pedigree Function, and Age — across a few different train-test splits. The rest
+          of the project tested a much wider set of algorithms, from boosting methods to
+          neural nets, on the same data, which made it a good way to see how much the
+          preprocessing choice alone changes the outcome.
+        </p>
+        <ul class="stack-list" aria-label="Technology stack">
+          <li>Python</li>
+          <li>scikit-learn</li>
+          <li>pandas / numpy</li>
+          <li>PCA</li>
+          <li>Kernel SVM (RBF)</li>
+        </ul>
+        <div class="project-links">
+          <a href="https://github.com/Devasurya05/PCL_Machine_Learning" rel="noopener">Repository →</a>
+        </div>
         </div>
       </article>
 
-      <p class="flag">
-        NEEDS: confirm this is the complete works list (GitHub also has
-        Hackathon_23BTRCT034, PCL_Machine_Learning, and two coursework/practice repos —
-        left out here as likely too small/non-representative, but confirm).
-      </p>
       <p class="view-next"><a href="#toolrack">Next — Skills →</a></p>
     </div>
   </section>
@@ -804,28 +844,49 @@
     <div class="view-inner">
       <a class="bench-return" href="#forge">⟵ Back to the workshop</a>
       <div class="section-label"><h2 id="anvil-heading">After hours</h2></div>
-      <p class="section-intro">A few things I'm into outside of work.</p>
-      <p>
-        Music's probably my main one. I'm always looking for new stuff to listen to — right
-        now that's a lot of Blood Orange, Mac DeMarco, and Inner Wave.
-      </p>
-      <p>
-        I play games regularly, mostly to keep that habit alive. I've finished most of the
-        FromSoftware games — Elden Ring, Bloodborne, Sekiro, Dark Souls 3 — along with
-        Persona 5, OMORI, and Undertale. Right now I'm working through Blasphemous and Hades.
-        My favorite is probably the Infamous series.
-      </p>
-      <p>
-        My favorite anime is Steins;Gate. For movies, I'd probably say Jumper or Palm
-        Springs.
-      </p>
-      <p>
-        Outside of screens, I like hiking, football, and bouldering — I try to take on harder
-        routes when I can, just to keep it interesting. I ride my bike a lot too. I also
-        collect Pokémon cards, both physical and on TCG Pocket, and I've played a good number
-        of the games. And on top of all that, I'm learning Japanese (JLPT N5 so far).
-      </p>
-      <p>Always looking for new things to get into.</p>
+      <p class="section-intro">Apart from work, I'm also into these things.</p>
+
+      <div class="beat">
+        <span class="beat-label">Music</span>
+        <p>
+          Probably my main one — always looking for something new. Right now that's a lot
+          of <code>Blood Orange</code>, <code>Mac DeMarco</code>, and <code>Inner Wave</code>.
+        </p>
+      </div>
+      <div class="beat">
+        <span class="beat-label">Gaming</span>
+        <p>
+          I play regularly, mostly to keep the habit alive. Cleared most of the
+          FromSoftware games — <code>Elden Ring</code>, <code>Bloodborne</code>,
+          <code>Sekiro</code>, <code>Dark Souls 3</code> — along with <code>Persona 5</code>,
+          <code>OMORI</code>, and <code>Undertale</code>. Currently working through
+          <code>Blasphemous</code> and <code>Hades</code>. Favorite's probably the
+          <code>Infamous</code> series.
+        </p>
+      </div>
+      <div class="beat">
+        <span class="beat-label">Movies &amp; anime</span>
+        <p>
+          Favorite anime is <code>Steins;Gate</code>. For movies, I'd say <code>Jumper</code>
+          or <code>Palm Springs</code>.
+        </p>
+      </div>
+      <div class="beat">
+        <span class="beat-label">Outdoors</span>
+        <p>
+          Hiking, football, and bouldering — I like taking on harder routes just to keep
+          it interesting. I ride my bike a lot too.
+        </p>
+      </div>
+      <div class="beat">
+        <span class="beat-label">Collecting</span>
+        <p>
+          Pokémon cards, physical and on TCG Pocket, and I've played a good number of the
+          games. Also still slowly learning Japanese — JLPT N5 so far.
+        </p>
+      </div>
+
+      <p class="after-hours-close">Always looking for new things to get into.</p>
       <p class="view-next"><a href="#wall">Next — The Visitors' Wall →</a></p>
     </div>
   </section>
