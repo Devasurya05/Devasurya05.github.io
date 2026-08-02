@@ -19,7 +19,14 @@
 }
 .centerpiece-sub{ color:var(--paper-dim); max-width:56ch; font-size:17px; margin-bottom:8px; }
 
-.centerpiece-stages{ margin-top:32px; }
+/* Small but visible nudge that the stage row is clickable, not just a
+   heading — without it, sighted visitors don't naturally find the tabs. */
+.cp-hint{
+  font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--brass-bright); margin:28px 0 10px;
+}
+
+.centerpiece-stages{ margin-top:0; }
 .cp-nav{ display:flex; flex-wrap:wrap; gap:2px; margin-bottom:2px; }
 .cp-nav-btn{
   font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase;

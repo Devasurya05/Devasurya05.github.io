@@ -80,7 +80,7 @@ function hasLeftMark(){ return localStorage.getItem(LS_LEFT) === '1'; }
 // Golden-angle spiral from the shield's center; the clipPath in the SVG
 // keeps late arrivals inside the steel.
 function markPosition(i){
-  const r = 16 * Math.sqrt(i);
+  const r = 19 * Math.sqrt(i);
   const a = i * 2.39996;
   return { x: 200 + r * Math.cos(a), y: 215 + r * Math.sin(a) * 1.05 };
 }
@@ -115,7 +115,7 @@ function renderMark(container, mark, i, isNew){
 // The same marks also appear on the shield hanging in the workshop scene,
 // so the wall is visibly alive without anyone clicking into it.
 function renderSceneMark(container, mark, i){
-  const r = 13 * Math.sqrt(i);
+  const r = 15 * Math.sqrt(i);
   const a = i * 2.39996;
   const g = document.createElementNS(SVG_NS, 'g');
   g.setAttribute('transform',
